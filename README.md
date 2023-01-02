@@ -31,6 +31,8 @@ The implemented features are:
 - View a order;
 - Delete a order.
 
+See the requirements file to learn more about endpoints and table structure [here](REQUIREMENTS.md)
+
 ## Getting started
 
 To work with this project, you need to know JavaScript, TypeScript, ExpressJS and NodeJS.
@@ -47,6 +49,36 @@ To install the dependencies, place yourself in the project folder and run the fo
 npm install
 ```
 
+#### Database
+
+In this project, Postgres was used you must configure it in the following way.
+
+To learn how to connect to your database, follow this link: - [https://www.w3resource.com/PostgreSQL/connect-to-postgresql-database.php](https://www.w3resource.com/PostgreSQL/connect-to-postgresql-database.php)
+
+Connect to your database and run the following command to create a user
+
+```bash
+CREATE USER full_stack_user WITH PASSWORD 'password123';
+```
+
+full_stack_user: this is the username; Its password is: password123 you can change them
+
+Now create the databases with the following commands
+
+```bash
+CREATE DATABASE storefront;
+CREATE DATABASE storefront_test;
+```
+
+This commands will create two databases: `storefront` and `storefront_test`
+
+Give the necessary user privileges on databases
+
+```bash
+GRANT ALL PRIVILEGES ON DATABASE storefront TO full_stack_user;
+GRANT ALL PRIVILEGES ON DATABASE storefront_test TO full_stack_user;
+```
+
 #### Environment
 
 Create a `.env` file at the root of the project and update the values. replace ### with correct values
@@ -55,16 +87,14 @@ Create a `.env` file at the root of the project and update the values. replace #
 POSTGRES_HOST = '127.0.0.1'
 POSTGRES_DB = 'storefront'
 POSTGRES_TEST_DB = 'storefront_test'
-POSTGRES_USER = '###'
-POSTGRES_PASSWORD = '###'
+POSTGRES_USER = 'full_stack_user'
+POSTGRES_PASSWORD = 'password123'
 POSTGRES_PORT=5432
 ENV="dev"
 BCRYPT_PASSWORD=storefront
 SALT_ROUNDS=10
 TOKEN_SECRET=my-signature
 ```
-
-You must create two databases. One for development and one for testing. In this case, `storefront` is used in development and `storefront_test` is for testing.
 
 #### Script details
 
@@ -92,15 +122,15 @@ Create a 'database.json' file at the root of the project and update the values m
     "driver": "pg",
     "host": "127.0.0.1",
     "database": "storefront",
-    "user": "###",
-    "password": "###"
+    "user": "full_stack_user",
+    "password": "password123"
   },
   "test": {
     "driver": "pg",
     "host": "127.0.0.1",
     "database": "storefront_test",
-    "user": "###",
-    "password": "###"
+    "user": "full_stack_user",
+    "password": "password123"
   }
 }
 ```
@@ -125,7 +155,37 @@ The outpout folder is `dist`
 
 #### Endpoints
 
-see requirements file [here](REQUIREMENTS.md)
+#### Products
+
+- Index `/products` [GET]
+- Create `/products` [POST] [JWT authentication is required]
+- Show `/products/:id` [GET]
+- Update `/products/:id` [PUT] [JWT authentication is required]
+- Delete `/products/:id` [DELETE] [JWT authentication is required]
+
+- Frenquently ordered products `/products/frequently-ordered/:limit` [GET]
+
+#### Users
+
+- Index `/users` [GET] [JWT authentication is required]
+- Create `/users` [POST]
+- Show `/users/:id` [GET] [JWT authentication is required]
+- Update `/users/:id` [PUT] [JWT authentication is required]
+- Delete `/users/:id` [DELETE] [JWT authentication is required]
+- Auth `/users/auth` [POST]
+
+#### Orders
+
+- Index `/orders` [GET]
+- Create `/orders` [POST] [JWT authentication is required]
+- Show `/orders/:id` [GET] [JWT authentication is required]
+- Update `/orders/:id` [PUT] [JWT authentication is required]
+- Delete `/orders/:id` [DELETE] [JWT authentication is required]
+
+- Current orders of user `/orders/user/current-orders/:id` [GET] [JWT authentication is required]
+- Completed orders of user `/orders/user/complete-orders/:id` [GET] [JWT authentication is required]
+
+See the requirements file to learn more about endpoints and table structure [here](REQUIREMENTS.md)
 
 ## Authors
 
