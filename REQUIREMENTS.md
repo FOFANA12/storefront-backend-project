@@ -9,32 +9,32 @@ These are the notes from a meeting with the frontend developer that describe wha
 #### Products
 
 - Index `/products` [GET]
-- Create `/products` [POST] [token required]
+- Create `/products` [POST] [JWT authentication is required]
 - Show `/products/:id` [GET]
-- Update `/products/:id` [PUT] [token required]
-- Delete `/products/:id` [DELETE] [token required]
+- Update `/products/:id` [PUT] [JWT authentication is required]
+- Delete `/products/:id` [DELETE] [JWT authentication is required]
 
 - Frenquently ordered products `/products/frequently-ordered/:limit` [GET]
 
 #### Users
 
-- Index `/users` [GET] [token required]
+- Index `/users` [GET] [JWT authentication is required]
 - Create `/users` [POST]
-- Show `/users/:id` [GET] [token required]
-- Update `/users/:id` [PUT] [token required]
-- Delete `/users/:id` [DELETE] [token required]
+- Show `/users/:id` [GET] [JWT authentication is required]
+- Update `/users/:id` [PUT] [JWT authentication is required]
+- Delete `/users/:id` [DELETE] [JWT authentication is required]
 - Auth `/users/auth` [POST]
 
 #### Orders
 
 - Index `/orders` [GET]
-- Create `/orders` [POST] [token required]
-- Show `/orders/:id` [GET] [token required]
-- Update `/orders/:id` [PUT] [token required]
-- Delete `/orders/:id` [DELETE] [token required]
+- Create `/orders` [POST] [JWT authentication is required]
+- Show `/orders/:id` [GET] [JWT authentication is required]
+- Update `/orders/:id` [PUT] [JWT authentication is required]
+- Delete `/orders/:id` [DELETE] [JWT authentication is required]
 
-- Current orders of user `/orders/user/current-orders/:id` [GET] [token required]
-- Completed orders of user `/orders/user/complete-orders/:id` [GET] [token required]
+- Current orders of user `/orders/user/current-orders/:id` [GET] [JWT authentication is required]
+- Completed orders of user `/orders/user/complete-orders/:id` [GET] [JWT authentication is required]
 
 ## Data Shapes
 
